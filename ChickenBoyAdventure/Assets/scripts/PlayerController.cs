@@ -60,6 +60,11 @@ public class PlayerController : MonoBehaviour
         
         } }
 
+    public bool CanMove {
+        get {
+            return animator.GetBool(AnimationStrings.canMove);
+        }
+    }
     
 
     Rigidbody2D rb;
@@ -119,7 +124,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.started && touchingDirections.IsGrounded)
+        if (context.started && touchingDirections.IsGrounded && CanMove)
         {
             animator.SetTrigger(AnimationStrings.jump);
             rb.velocity = new Vector2(rb.velocity.x, jumpImpulse);
