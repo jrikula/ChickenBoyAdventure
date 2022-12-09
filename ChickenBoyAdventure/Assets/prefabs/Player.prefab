@@ -493,7 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511d1395a3e280c40996e0a9e7bb514b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objToSpawn: {fileID: 1454945965067919523}
+  original: {fileID: 1454945965067919523}
   platformPosition: {fileID: 2659530842091389487}
 --- !u!61 &1639952177364907196
 BoxCollider2D:
