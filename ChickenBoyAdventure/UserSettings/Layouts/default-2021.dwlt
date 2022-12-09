@@ -19,12 +19,15 @@ MonoBehaviour:
     width: 1900.2063
     height: 986.7217
   m_ShowMode: 4
+
   m_Title: Hierarchy
   m_RootView: {fileID: 7}
+
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
+
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,6 +52,7 @@ MonoBehaviour:
   vertical: 1
   controlID: 25
 --- !u!114 &3
+
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,6 +69,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1361.8145
     y: 0
+
     width: 538.39185
     height: 936.7217
   m_MinSize: {x: 276, y: 71}
@@ -76,6 +81,7 @@ MonoBehaviour:
   m_Selected: 0
   m_LastSelected: 1
 --- !u!114 &4
+
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,8 +94,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
+
   - {fileID: 10}
   - {fileID: 3}
+
   m_Position:
     serializedVersion: 2
     x: 0
@@ -99,8 +107,10 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
+
   controlID: 26
 --- !u!114 &5
+
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,12 +131,14 @@ MonoBehaviour:
     height: 553.2371
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
+
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &6
+
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,16 +159,23 @@ MonoBehaviour:
     height: 383.48456
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
+
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
   - {fileID: 22}
   - {fileID: 16}
   - {fileID: 15}
+
   - {fileID: 17}
+  - {fileID: 21}
+  - {fileID: 15}
+  - {fileID: 14}
   m_Selected: 0
   m_LastSelected: 1
+
 --- !u!114 &7
+
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,9 +188,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
+
   - {fileID: 8}
   - {fileID: 2}
   - {fileID: 9}
+
   m_Position:
     serializedVersion: 2
     x: 0
@@ -184,7 +205,9 @@ MonoBehaviour:
   m_TopViewHeight: 30
   m_UseBottomView: 1
   m_BottomViewHeight: 20
+
 --- !u!114 &8
+
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,7 +229,9 @@ MonoBehaviour:
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
+
 --- !u!114 &9
+
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,7 +252,9 @@ MonoBehaviour:
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
+
 --- !u!114 &10
+
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,8 +267,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
+
   - {fileID: 11}
   - {fileID: 6}
+
   m_Position:
     serializedVersion: 2
     x: 0
@@ -251,8 +280,10 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
+
   controlID: 27
 --- !u!114 &11
+
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,6 +298,7 @@ MonoBehaviour:
   m_Children:
   - {fileID: 5}
   - {fileID: 12}
+
   m_Position:
     serializedVersion: 2
     x: 0
@@ -298,6 +330,7 @@ MonoBehaviour:
     height: 553.2371
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
+
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -428,6 +461,7 @@ MonoBehaviour:
     m_IsLocked: 0
   m_LastSelectedObjectID: 29696
 --- !u!114 &15
+
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -952,6 +986,7 @@ MonoBehaviour:
     m_Image: {fileID: 0}
     m_Tooltip: 
 --- !u!114 &16
+
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1655,8 +1690,8 @@ MonoBehaviour:
       containerId: overlay-toolbar__top
       floating: 0
       collapsed: 0
-      displayed: 1
-      snapOffset: {x: 0, y: 24.74227}
+      displayed: 0
+      snapOffset: {x: 0, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Tilemap Focus
@@ -1674,7 +1709,8 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: -8.422349, y: -0.21012846, z: -0.07708441}
     speed: 2
-    m_Value: {x: -8.829257, y: -0.05316387, z: -0.080797546}
+    m_Value: {x: -8.829257, y: -0.05316387, z: -0.080797546}7559178, y: -0.3722932, z: 1.406156}
+
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
