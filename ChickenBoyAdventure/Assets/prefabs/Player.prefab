@@ -159,9 +159,10 @@ GameObject:
   - component: {fileID: 484206778834295355}
   - component: {fileID: 889070314188758279}
   - component: {fileID: 6038028849610039150}
+  - component: {fileID: 1639952177364907196}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,8 +175,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4852850850686515790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.14411268, y: 0.08115207, z: 0.08899229}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -6.1299, y: -1.9386, z: 0.08899229}
+  m_LocalScale: {x: 1.1579854, y: 1.217153, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2659530842091389487}
@@ -320,7 +321,19 @@ MonoBehaviour:
     m_ActionId: fe223ae7-e43c-442b-bcc0-f93200f9ba18
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4736111167240879041}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: c6364873-d036-4f3e-ad45-123902b417d6
     m_ActionName: Player/Attack[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -465,8 +478,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04948461, y: 0}
-  m_Size: {x: 0.4556694, y: 1}
+  m_Offset: {x: -0.04261631, y: 0}
+  m_Size: {x: 0.52435327, y: 1}
   m_Direction: 0
 --- !u!114 &6038028849610039150
 MonoBehaviour:
@@ -482,3 +495,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objToSpawn: {fileID: 1454945965067919523}
   platformPosition: {fileID: 2659530842091389487}
+--- !u!61 &1639952177364907196
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852850850686515790}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 3aebd3ef6f4f9fe45984452376789a4c, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.047839284, y: -0.36950988}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.33120215, y: 0.15642938}
+  m_EdgeRadius: 0
