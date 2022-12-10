@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections))]
+[RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections), typeof(Damageable))]
 public class slime : MonoBehaviour
 {
     public float walkSpeed = 2f;
@@ -15,9 +15,7 @@ public class slime : MonoBehaviour
 
     Rigidbody2D rb;
     Animator animator;
-
-
-
+    Damageable damageable;
     TouchingDirections touchingDirections;
 
 
@@ -27,7 +25,7 @@ public class slime : MonoBehaviour
     private Vector2 walkDirectionVector = Vector2.right;
 
     
-       public WalkableDirection WalkDirection
+    public WalkableDirection WalkDirection
     {
         get 
         { 
@@ -73,34 +71,53 @@ public class slime : MonoBehaviour
             return animator.GetBool(AnimationStrings.canMove);
         }
     }
+
+    public float AttackCooldown {
+        get 
+        {
+            return animator.GetFloat(AnimationStrings.attackCooldown);
+        }
+        private set
+        {
+            animator.SetFloat(AnimationStrings.attackCooldown, Mathf.Max(value, 0));
+        }
+    }
       void Awake()
     {
         touchingDirections = GetComponent<TouchingDirections>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
+        damageable = GetComponent<Damageable>();
     }
 
     void Update()
     {
              HasTarget = attackZone.detectedColliders.Count > 0;   
+             
+             if(AttackCooldown > 0)
+             {
+                AttackCooldown -= Time.deltaTime;
+             }
     }
 
-     void FixedUpdate()
+    void FixedUpdate()
     {
-      if(touchingDirections.IsGrounded && touchingDirections.IsOnWall || cliffDetectionZone.detectedColliders.Count == 0)
+      if(touchingDirections.IsGrounded && touchingDirections.IsOnWall )
         {
             FlipDirection();
         }
 
-        if(CanMove)
-        rb.velocity = new Vector2(walkSpeed * walkDirectionVector.x, rb.velocity.y);
+        if(!damageable.LockVelocity)
+        {
+            if(CanMove)    
+                rb.velocity = new Vector2(walkSpeed * walkDirectionVector.x, rb.velocity.y);
             else
-                rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, walkStopRate), rb.velocity.y);
-    }
+            rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, walkStopRate), rb.velocity.y);
+        }
+    }   
 
        private void FlipDirection()
-    {
+        {
         if(WalkDirection == WalkableDirection.Right)
         {
             WalkDirection = WalkableDirection.Left;
@@ -114,6 +131,18 @@ public class slime : MonoBehaviour
             Debug.LogError("Current walkable direction is not set to legal values of right or left");
         }
     }
+
+    public void OnHit(int damage, Vector2 knockback)
+    {
+        rb.velocity = new Vector2(knockback.x, rb.velocity.y + knockback.y);
+    }
    
+    public void OnCliffDetetcted()
+    {
+        if(touchingDirections.IsGrounded)
+        {
+            FlipDirection();
+        }
+    }
   
 }
