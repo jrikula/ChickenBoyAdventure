@@ -15,6 +15,21 @@ public class PlayerController : MonoBehaviour
 
 
 
+ 
+public float CurrentMoveSpeed    {
+get        {
+if (CanMove)            
+{               
+if (IsMoving && !touchingDirections.IsOnWall)               
+{                    return walkSpeed;               
+}                else                {                    
+//Idle speed is 0                   
+return 0;                }            
+}            else            
+{               
+//Movement locked                
+return 0;            }        }    }
+
 
 
     [SerializeField]
@@ -65,6 +80,13 @@ public class PlayerController : MonoBehaviour
             return animator.GetBool(AnimationStrings.canMove);
         }
     }
+
+    public bool IsAlive {
+        get
+        {
+            return animator.GetBool(AnimationStrings.isAlive);
+        }
+    }
     
 
     Rigidbody2D rb;
@@ -81,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveInput.x * walkSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(moveInput.x * CurrentMoveSpeed    , rb.velocity.y);
 
         animator.SetFloat(AnimationStrings.yVelocity, rb.velocity.y);
     }
@@ -90,9 +112,17 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = context.ReadValue<Vector2>();
 
-        IsMoving = moveInput != Vector2.zero;
+        if(IsAlive)
+        {
+            IsMoving = moveInput != Vector2.zero;
 
-        SetFacingDirection(moveInput);
+            SetFacingDirection(moveInput);
+        } 
+        else
+        {
+            IsMoving = false;
+        }
+        
     }
 
     private void SetFacingDirection(Vector2 moveInput)

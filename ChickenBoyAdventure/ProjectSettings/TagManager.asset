@@ -12,12 +12,12 @@ TagManager:
   - Water
   - UI
   - Ground
-  - Wall
-  - BG
-  - Enemy
-  - Ground Check
   - Player
-  - Enemy Hitbox
+  - Enemy
+  - PlayerHitbox
+  - EnemyHitbox
+  - 
+  - 
   - 
   - 
   - 

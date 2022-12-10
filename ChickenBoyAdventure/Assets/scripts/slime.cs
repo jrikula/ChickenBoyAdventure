@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections))]
 public class slime : MonoBehaviour
 {
-    public float walkSpeed = 3f;
-    public float walkStopRate = 0.6f;
+    public float walkSpeed = 2f;
+    public float walkStopRate = 0.05f;
 
 
     public DetectionZone attackZone;
@@ -61,7 +62,7 @@ public class slime : MonoBehaviour
         private set
         {
             _hasTarget = value;
-            animator.SetBool("hasTarget", value);
+            animator.SetBool(AnimationStrings.hasTarget, value);
         }
     }
 
@@ -69,7 +70,7 @@ public class slime : MonoBehaviour
     {
         get
         {
-            return animator.GetBool("canMove");
+            return animator.GetBool(AnimationStrings.canMove);
         }
     }
       void Awake()
@@ -79,11 +80,6 @@ public class slime : MonoBehaviour
         animator = GetComponent<Animator>();
 
     }
-    void Start()
-    {
-        
-    }
-
 
     void Update()
     {
