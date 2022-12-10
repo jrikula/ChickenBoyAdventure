@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 462230900588284324}
   - component: {fileID: 1817468980112110772}
   - component: {fileID: 3662780264420116816}
+  - component: {fileID: 1742628682360857511}
   m_Layer: 0
   m_Name: egg
   m_TagString: Untagged
@@ -111,12 +112,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.51561666, y: 0.6149435}
   m_EdgeRadius: 0
+
 --- !u!1 &3869380321932818050
 GameObject:
+
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1245231266024490845}
@@ -184,6 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 15
   knockback: {x: 2, y: 0}
+
 --- !u!1 &4089429852801610360
 GameObject:
   m_ObjectHideFlags: 0
