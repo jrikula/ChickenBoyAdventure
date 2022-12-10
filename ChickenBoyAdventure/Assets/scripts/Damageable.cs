@@ -37,7 +37,7 @@ public class Damageable : MonoBehaviour
             _health = value;
 
             // If health drops below 0, character is no longer alive
-            if(_health <= 0)
+            if(_health < 0)
             {
                 IsAlive = false;
             }
@@ -63,7 +63,7 @@ public class Damageable : MonoBehaviour
         set
         {
             _isAlive = value;
-            animator.SetBool("isAlive", value);
+            animator.SetBool(AnimationStrings.isAlive, value);
             Debug.Log("isAlive set " + value);
         }
     }    
