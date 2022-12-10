@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Damageable : MonoBehaviour
 {
+    public UnityEvent<int, Vector2> damageableHit;
     Animator animator;
 
 
@@ -37,7 +39,7 @@ public class Damageable : MonoBehaviour
             _health = value;
 
             // If health drops below 0, character is no longer alive
-            if(_health < 0)
+            if(_health <= 0)
             {
                 IsAlive = false;
             }
@@ -49,6 +51,8 @@ public class Damageable : MonoBehaviour
 
     [SerializeField]
     private bool isInvincible = false;
+
+   
 
     private float timeSinceHit = 0;
     public float invincibilityTime = 0.25f;
@@ -67,7 +71,18 @@ public class Damageable : MonoBehaviour
             Debug.Log("isAlive set " + value);
         }
     }    
-
+    // the velocity should not change while this is true but needs to be repected by other pysics components like
+    // the player controller
+    public bool LockVelocity {
+        get
+        {
+            return animator.GetBool(AnimationStrings.lockVelocity);
+        }
+        set 
+        {
+            animator.SetBool(AnimationStrings.lockVelocity, value);
+        }
+    }
 
     private void Awake()
     {
@@ -89,7 +104,9 @@ public class Damageable : MonoBehaviour
         }
         //Hit(10);
     }
-    public bool Hit(int damage)
+
+    // returns wheter the damageable took damage or not
+    public bool Hit(int damage, Vector2 knockback)
     {
         if(IsAlive && !isInvincible)
         {
@@ -97,9 +114,13 @@ public class Damageable : MonoBehaviour
             isInvincible = true;
 
             //Notify other subscribe components that the damageable was hit to handle the knockback and such
-            animator.SetTrigger("hit");
-           // LockVelocity = true;
-           // damageableHit?.Invoke(damage, knockback);
+            
+           //? check if it is null or not
+           
+           animator.SetTrigger(AnimationStrings.hit);
+           LockVelocity = true;
+           damageableHit?.Invoke(damage, knockback);
+           
 
             return true;
         }
