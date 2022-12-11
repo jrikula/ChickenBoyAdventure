@@ -111,7 +111,7 @@ public class slime : MonoBehaviour
         {
             if(CanMove)    
                 rb.velocity = new Vector2(walkSpeed * walkDirectionVector.x, rb.velocity.y);
-            else
+            else //mathf so the enemy slows down when attacking
             rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, walkStopRate), rb.velocity.y);
         }
     }   
