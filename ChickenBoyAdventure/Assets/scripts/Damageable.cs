@@ -11,7 +11,7 @@ public class Damageable : MonoBehaviour
 
 
     [SerializeField]
-    private int _maxHealth = 5;
+    private int _maxHealth = 100;
 
     public int MaxHealth
     {
@@ -26,7 +26,7 @@ public class Damageable : MonoBehaviour
     }
 
     [SerializeField]
-    private int _health = 5;
+    private int _health = 100;
 
     public int Health
     {
@@ -51,9 +51,6 @@ public class Damageable : MonoBehaviour
 
     [SerializeField]
     private bool isInvincible = false;
-
-   
-
     private float timeSinceHit = 0;
     public float invincibilityTime = 0.25f;
 
@@ -102,7 +99,7 @@ public class Damageable : MonoBehaviour
 
             timeSinceHit += Time.deltaTime;
         }
-        //Hit(10);
+        //testHit(10);
     }
 
     // returns wheter the damageable took damage or not
@@ -126,5 +123,13 @@ public class Damageable : MonoBehaviour
         }
         // Unable to hit
         return false;
+    }
+    public void testHit(int damage)
+    {
+        if(IsAlive && !isInvincible)
+        {
+            Health -= damage;
+            isInvincible = true;
+        }
     }
 }
